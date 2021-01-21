@@ -190,7 +190,7 @@
       // 每次会将页面中的 DOM 全部替换
     }
 
-    // 响应式化的部分
+    // 重写7个可以修改原数组的数组方法
     let ARRAY_METHOD = [
       'push',
       'pop',
@@ -200,17 +200,17 @@
       'sort',
       'splice',
     ];
+    // 继承数组原型的一些方法
     let array_methods = Object.create( Array.prototype );
+    // 重写
     ARRAY_METHOD.forEach( method => {
       array_methods[ method ] = function () {
         // 调用原来的方法
         console.log( '调用的是拦截的 ' + method + ' 方法' );
-
         // 将数据进行响应式化
         for( let i = 0; i < arguments.length; i++ ) {
           reactify( arguments[ i ] );
         } 
-
         let res = Array.prototype[ method ].apply( this, arguments );
         // Array.prototype[ method ].call( this, ...arguments ); // 类比
         return res;
