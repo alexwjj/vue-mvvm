@@ -1,15 +1,16 @@
 {
-  "name": "vue-src-course",
+  "name": "rollup-demo",
   "version": "1.0.0",
-  "description": "- Vue 与模板\r - 数据驱动模型\r - 简单的模板渲染\r - 虚拟 DOM\r - VNode 比较与更新 (暂定)",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "rollup src/index.js --file dist/jgvue.js --format umd --name JGVue --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.6.10"
+    "rollup": "^1.27.2"
   }
 }
